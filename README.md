@@ -20,3 +20,15 @@
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+- - -
+
+Name of feature: Asynchronous code, and APIs
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 9pm
+
+Finish time: 12pm
+
+Actual time needed to complete: 3 hours
