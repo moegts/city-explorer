@@ -48,9 +48,10 @@
 - CSS
 
 ## Change Log
-12-09-2021 10:50pm - Application now has a location explore functionality, with a GET route for the location resource.
-12-09-2021 11:55pm - Application now can show map of the requested location.
-13-09-2021 03:15pm - Application now can alert for errors.
+
+- 12-09-2021 10:50pm - Application now has a location explore functionality, with a GET route for the location resource.
+- 12-09-2021 11:55pm - Application now can show map of the requested location.
+- 13-09-2021 03:15pm - Application now can alert for errors.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -65,6 +66,36 @@ Estimate of time needed to complete: 3 hours
 
 Start time: 9pm
 
-Finish time: 12pm
+Finish time: 1pm
 
-Actual time needed to complete: 3 hours
+Actual time needed to complete: 4 hours
+
+- - -
+
+Name of feature: 1. Set up your server repository
+
+Estimate of time needed to complete: 10 min
+
+Start time: 1:30_
+
+Finish time: _1:40
+
+Actual time needed to complete: 10 min
+
+Name of feature: 2. Weather (placeholder): As a user of City Explorer, I want to see weather info for the city I searched, so that I know how to pack for an upcoming trip.
+
+Estimate of time needed to complete: 4 hr
+
+Start time: 3:00
+
+Finish time: 7:00
+
+Actual time needed to complete: 1 hr
+
+Name of feature: 3. Errors (revisited): As a user, I want clear messages if something goes wrong so I know if I need to make any changes or try again in a different manner.
+Estimate of time needed to complete: 30 min
+Start time: 8:00
+
+Finish time: 8:30
+
+Actual time needed to complete: 10 min

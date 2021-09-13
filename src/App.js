@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Forminput from './components/Forminput';
 import LocationData from './components/LocationData';
 import axios from 'axios';
+import Weather from './components/Weather';
 import { Alert } from 'react-bootstrap';
 export class App extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export class App extends Component {
       cityImage: '',
       erorr: '',
       erorrHandle: false,
+      weatherData: [],
     }
   }
   handleLocation = (e) => {
@@ -55,12 +57,21 @@ export class App extends Component {
         erorrHandle: true
       })
       console.log(this.state.erorr)
+    }).then(()=>{
+      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?searchInQuery=${this.state.display_name}&lat=${this.state.lat}&lon=${this.state.lon}`).then(res=>{
+        this.setState({
+          weatherData:res.data.foreCast,
+        })
+      })
     })
   }
   render() {
     return (
       <div>
         <Forminput handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} />
+        {
+          <Weather weatherData={this.state.weatherData}/>
+        }
         {
           this.state.cityShow && <LocationData display_name={this.state.display_name} cityImage={this.state.cityImage} lon={this.state.lon} lat={this.state.lat} />
         }
