@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Forminput from './components/Forminput';
 import LocationData from './components/LocationData';
 import axios from 'axios';
+import { Alert } from 'react-bootstrap';
 export class App extends Component {
   constructor(props) {
     super(props)
@@ -12,6 +13,8 @@ export class App extends Component {
       lat: '',
       cityShow: false,
       cityImage: '',
+      erorr: '',
+      erorrHandle: false,
     }
   }
   handleLocation = (e) => {
@@ -46,14 +49,25 @@ export class App extends Component {
         })
 
       })
+    }).catch(e => {
+      this.setState({
+        erorr: e.toString(),
+        erorrHandle: true
+      })
+      console.log(this.state.erorr)
     })
   }
   render() {
     return (
       <div>
-        <Forminput handleLocation={this.handleLocation} handleSubmit={this.handleSubmit}/>
+        <Forminput handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} />
         {
-          this.state.cityShow && <LocationData display_name={this.state.display_name} cityImage={this.state.cityImage} lon={this.state.lon} lat={this.state.lat}/>
+          this.state.cityShow && <LocationData display_name={this.state.display_name} cityImage={this.state.cityImage} lon={this.state.lon} lat={this.state.lat} />
+        }
+        { 
+          this.state.erorrHandle&&<Alert variant={'danger'}>
+            This is a {this.state.erorr} alert—check it out!
+          </Alert>
         }
       </div>
     )
