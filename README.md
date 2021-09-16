@@ -1,7 +1,7 @@
 # Project Name
 
 **Author**: Mohamamd Khalil
-**Version**: 1.0.0
+**Version**: 2.0.0
 
 ## Overview
 
@@ -52,6 +52,7 @@
 - 12-09-2021 10:50pm - Application now has a location explore functionality, with a GET route for the location resource.
 - 12-09-2021 11:55pm - Application now can show map of the requested location.
 - 13-09-2021 03:15pm - Application now can alert for errors.
+- 16-09-2021 05:50pm - Application give status about weather and movies @ the same times for the same name of country or city you enter.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -99,3 +100,18 @@ Start time: 8:00
 Finish time: 8:30
 
 Actual time needed to complete: 10 min
+
+
+- - -
+
+Name of feature: link front-end with back end
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 2:50pm
+
+Finish time: 5:50pm
+
+Actual time needed to complete: 3 hours
+
+- - -
