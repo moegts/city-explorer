@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.kingOne{
+  padding: 5px;
+  justify-content: center;
+  width: 95%;
+  margin: auto;
+}
+
+body div div section div div.col-sm-3{
+  width: auto;
+}
+body div div section div{
+  width: auto;
+  gap:30px
+}
+.row{
+  justify-content: center;
+}
+
+.movieHeader{
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  background-color: rgb(68, 68, 68);
+}
+
+#root{
+  background-color: rgb(97, 97, 97);
+  height: 951px;
+}
+
+div#root div{
+  background-color: rgb(97, 97, 97);
+}

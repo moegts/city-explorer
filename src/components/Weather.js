@@ -19,7 +19,6 @@ export class Weather extends Component {
                                         <td>{i.description}</td>
                                     </tr>
                         })}
-
                     </tbody>
                 </Table>
             </div>

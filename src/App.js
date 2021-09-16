@@ -5,6 +5,8 @@ import LocationData from './components/LocationData';
 import axios from 'axios';
 import Weather from './components/Weather';
 import { Alert } from 'react-bootstrap';
+import MovieCard from './components/MovieCard'
+
 export class App extends Component {
   constructor(props) {
     super(props)
@@ -17,6 +19,9 @@ export class App extends Component {
       erorr: '',
       erorrHandle: false,
       weatherData: [],
+      movieData: [],
+      movieCard: false,
+      cityMovie:'',
     }
   }
   handleLocation = (e) => {
@@ -38,6 +43,7 @@ export class App extends Component {
         lon: responseData.lon,
         lat: responseData.lat,
         cityShow: true,
+        movieCard: true,
       })
 
       let configImage = {
@@ -58,16 +64,26 @@ export class App extends Component {
       })
       console.log(this.state.erorr)
     }).then(()=>{
-      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?searchInQuery=${this.state.display_name}&lat=${this.state.lat}&lon=${this.state.lon}`).then(res=>{
+      axios.get(`https://city-moegts.herokuapp.com/weather?searchCity=${this.state.display_name}&lat=${this.state.lat}&lon=${this.state.lon}`).then(res=>{
         this.setState({
           weatherData:res.data.foreCast,
         })
       })
+    }).then(()=>{
+      let city = this.state.display_name;
+      let spliter = city.split(',');
+      let cityMovie = spliter[0];
+      axios.get(`https://city-moegts.herokuapp.com/movie?searchCity=${cityMovie}`).then(res=>{
+        this.setState({
+          movieData:res.data,
+        })
+      })
+      return cityMovie;
     })
   }
   render() {
     return (
-      <div>
+      <div style={{backgroundColor: 'gray'}}>
         <Forminput handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} />
         {
           <Weather weatherData={this.state.weatherData}/>
@@ -75,9 +91,24 @@ export class App extends Component {
         {
           this.state.cityShow && <LocationData display_name={this.state.display_name} cityImage={this.state.cityImage} lon={this.state.lon} lat={this.state.lat} />
         }
+
+        
+          
+        <section class="kingOne" >
+        
+          
+          {
+            this.state.movieCard && 
+            <div class="movieHeader">
+            <MovieCard movieData = {this.state.movieData}/>
+            </div>
+
+          }
+        </section>
+        
         { 
-          this.state.erorrHandle&&<Alert variant={'danger'}>
-            This is a {this.state.erorr} alert—check it out!
+          this.state.erorrHandle && <Alert variant={'danger'}>
+            This is a {this.state.newcity} alert—check it out!
           </Alert>
         }
       </div>
