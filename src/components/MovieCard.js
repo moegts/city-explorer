@@ -11,7 +11,7 @@ export class MovieCard extends Component {
                 <h1 style={{color: 'white'}}>The Movie list</h1>
                 {this.props.movieData.map(i => {
                     let poster_path = i.poster_path;
-                    if (poster_path.search("null") > 0) {
+                    if (poster_path.search("null") > -1) {
                         poster_path = placeholder;
                     }
                     const popover = (
@@ -30,7 +30,7 @@ export class MovieCard extends Component {
                       );
                     return <div class="col-sm-3">
                                 <Card style={{  width: '18rem' }}>
-                                    <Card.Img variant="top" src={poster_path} href={poster_path}/>
+                                    <Card.Img variant="top" src={poster_path}/>
                                     <Card.Body>
                                         <Card.Title>
                                             {i.title}

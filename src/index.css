@@ -21,6 +21,7 @@ code {
 
 body div div section div div.col-sm-3{
   width: auto;
+  box-shadow: 0px 0px 35px #060606;
 }
 body div div section div{
   width: auto;
@@ -35,6 +36,8 @@ body div div section div{
   height: 100%;
   padding: 50px;
   background-color: rgb(68, 68, 68);
+  border-radius: 25px;
+  
 }
 
 #root{
@@ -42,6 +45,8 @@ body div div section div{
   height: 951px;
 }
 
-div#root div{
+div#root div.col-sm-3 {
   background-color: rgb(97, 97, 97);
+  padding: 12px;
+  border-radius: 5px;
 }

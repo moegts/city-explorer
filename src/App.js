@@ -22,13 +22,16 @@ export class App extends Component {
       movieData: [],
       movieCard: false,
       cityMovie:'',
+      cityInput:'',
     }
   }
   handleLocation = (e) => {
     let city = e.target.value;
     this.setState({
       display_name: city,
+      cityInput:city
     })
+    return city;
   }
   handleSubmit = (e) => {
     e.preventDefault();
@@ -64,21 +67,17 @@ export class App extends Component {
       })
       console.log(this.state.erorr)
     }).then(()=>{
-      axios.get(`https://city-moegts.herokuapp.com/weather?searchCity=${this.state.display_name}&lat=${this.state.lat}&lon=${this.state.lon}`).then(res=>{
+      axios.get(`https://city-moegts.herokuapp.com/weather?searchCity=${this.state.cityInput}&lat=${this.state.lat}&lon=${this.state.lon}`).then(res=>{
         this.setState({
-          weatherData:res.data.foreCast,
+          weatherData:res.data,
         })
       })
     }).then(()=>{
-      let city = this.state.display_name;
-      let spliter = city.split(',');
-      let cityMovie = spliter[0];
-      axios.get(`https://city-moegts.herokuapp.com/movie?searchCity=${cityMovie}`).then(res=>{
+      axios.get(`https://city-moegts.herokuapp.com/movie?searchCity=${this.state.cityInput}`).then(res=>{
         this.setState({
           movieData:res.data,
         })
       })
-      return cityMovie;
     })
   }
   render() {
